@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">功能菜单</h2>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">冰雹猜想</h5>
+                <p class="card-text">输入正整数，生成冰雹序列</p>
+                <a href="{{ url_for('hailstone_page') }}" class="btn btn-primary">进入</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">数据统计</h5>
+                <p class="card-text">上传CSV文件，查看统计信息</p>
+                <a href="{{ url_for('data_stats_page') }}" class="btn btn-primary">进入</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">数据归一化</h5>
+                <p class="card-text">输入数值列表，计算Min-Max归一化</p>
+                <a href="{{ url_for('normalization_page') }}" class="btn btn-primary">进入</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">房价预测</h5>
+                <p class="card-text">输入房屋信息，预测房价</p>
+                <a href="{{ url_for('price_prediction_page') }}" class="btn btn-primary">进入</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

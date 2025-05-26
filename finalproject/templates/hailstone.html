@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">冰雹猜想序列生成</h2>
+<form method="POST" action="{{ url_for('hailstone_page') }}">
+    <div class="mb-3">
+        <label for="num" class="form-label">输入正整数</label>
+        <input type="number" class="form-control" id="num" name="num" min="1" required>
+    </div>
+    <button type="submit" class="btn btn-primary">生成序列</button>
+</form>
+
+{% if error %}
+    <div class="error-msg mt-3">{{ error }}</div>
+{% endif %}
+
+{% if sequence %}
+    <h4 class="mt-4">生成的冰雹序列：</h4>
+    <pre>{{ sequence|join(' → ') }}</pre>
+{% endif %}
+{% endblock %}

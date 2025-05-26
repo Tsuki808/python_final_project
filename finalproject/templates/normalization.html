@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">Min-Max归一化计算</h2>
+<form method="POST" action="{{ url_for('normalization_page') }}">
+    <div class="mb-3">
+        <label for="data" class="form-label">输入数值列表（逗号分隔）</label>
+        <textarea class="form-control" id="data" name="data" rows="3" required></textarea>
+        <div class="form-text">示例：10, 20, 30, 40, 50</div>
+    </div>
+    <button type="submit" class="btn btn-primary">计算归一化</button>
+</form>
+
+{% if error %}
+    <div class="error-msg mt-3">{{ error }}</div>
+{% endif %}
+
+{% if result %}
+    <h4 class="mt-4">归一化结果：</h4>
+    <pre>{{ result|join(' | ') }}</pre>
+{% endif %}
+{% endblock %}

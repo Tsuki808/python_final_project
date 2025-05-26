@@ -1,0 +1,8 @@
+# 学生成绩与信息统计（模拟真实场景数据）
+student_id,age,gender,math_score,english_score,project_score
+2023001,19,Male,89,92,85
+2023002,20,Female,95,88,90
+2023003,18,Male,78,84,82
+2023004,19,Female,86,90,88
+2023005,20,Male,91,86,92
+2023006,18,Female,83,94,86

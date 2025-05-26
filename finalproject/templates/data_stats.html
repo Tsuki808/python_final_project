@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">CSV数据统计分析</h2>
+<form method="POST" enctype="multipart/form-data" action="{{ url_for('data_stats_page') }}">
+    <div class="mb-3">
+        <label for="file" class="form-label">选择CSV文件</label>
+        <input type="file" class="form-control" id="file" name="file" accept=".csv" required>
+    </div>
+    <button type="submit" class="btn btn-primary">分析数据</button>
+</form>
+
+{% if error %}
+    <div class="error-msg mt-3">{{ error }}</div>
+{% endif %}
+
+{% if stats_html %}
+    <h4 class="mt-4">数据统计结果：</h4>
+    <div class="table-responsive mt-3">
+        {{ stats_html|safe }}
+    </div>
+{% endif %}
+{% endblock %}

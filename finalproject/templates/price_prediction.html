@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">房价预测计算器</h2>
+<form method="POST" action="{{ url_for('price_prediction_page') }}">
+    <div class="mb-3">
+        <label for="area" class="form-label">房屋面积（平方米）</label>
+        <input type="number" class="form-control" id="area" name="area" step="0.1" min="10" required>
+    </div>
+    <div class="mb-3">
+        <label for="rooms" class="form-label">房间数（间）</label>
+        <input type="number" class="form-control" id="rooms" name="rooms" min="1" required>
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">房龄（年）</label>
+        <input type="number" class="form-control" id="age" name="age" min="0" required>
+    </div>
+    <button type="submit" class="btn btn-primary">预测房价</button>
+</form>
+
+{% if error %}
+    <div class="error-msg mt-3">{{ error }}</div>
+{% endif %}
+
+{% if predicted_price is not none %}
+    <h4 class="mt-4">预测结果：</h4>
+    <div class="alert alert-info mt-3" role="alert">
+        预测房价为：<strong>{{ predicted_price }} 元</strong>
+    </div>
+{% endif %}
+{% endblock %}
